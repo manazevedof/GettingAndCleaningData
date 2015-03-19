@@ -4,6 +4,7 @@ some text
 DATA DICTIONARY - 
 
 variable
+
 	 1. fBodyAcc-mean-X           
 	 2. fBodyAcc-mean-Y           
 	 3. fBodyAcc-mean-Z          
