@@ -1,3 +1,29 @@
+## Data Processing with run_analisys.R
+
+The data sets for this project were obtained at:
+https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
+
+A full description of the experiment is available at:
+http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
+
+The script produces a tidy data set after processing records of eight different sets of data:
+
+1. Label files
+
+- activity_labels.txt: a [6 x 2] table representing the activities’ numbers and names.
+- features.txt: a [561 x 2] table with the 561 variable names, representing the different measures done in the experiment.  
+
+2. Test files
+
+- subject_test.txt: 
+- X_test: 
+- y_test:
+
+3. Train files
+
+- subject_train.txt: 
+- X_train: 
+- y_train:
 
 
 
