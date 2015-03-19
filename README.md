@@ -73,6 +73,7 @@ variable
 	66. tGravityAccMag-std 
 
 activity
+
 	1. WALKING
 	2. WALKING_UPSTAIRS
 	3. WALKING_DOWNSTAIRS
@@ -81,9 +82,11 @@ activity
 	6. LAYING
 
 subject
+
 	1..30 unique identifier assigned within a subject
 	
 mean
+
 	Average value related to a series of measures of a subject related to a specific
 	activity and variable
 	
