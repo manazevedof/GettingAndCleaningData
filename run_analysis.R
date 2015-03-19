@@ -54,8 +54,9 @@ seldata <- select(seldata,-label)
 
 # producing the tidy data set
 tidyset <- gather(seldata,variable,value,3:68) %>%
+     mutate(variable=gsub("\\(\\)","",variable)) %>%
      group_by(variable,activity,subject) %>%
      summarise(mean = mean(value))
-
+     
 # writing the data set to a text file
 write.table(tidyset,file="tidyset.txt",row.names=FALSE)
