@@ -1,9 +1,11 @@
-some text
 
 
-DATA DICTIONARY - 
 
-variable
+##DATA DICTIONARY
+
+###Data from the accelerometer and gyroscope of mobile phones.
+
+**variable**
 
 	 1. fBodyAcc-mean-X           
 	 2. fBodyAcc-mean-Y           
@@ -72,7 +74,7 @@ variable
 	65. tGravityAccMag-mean       
 	66. tGravityAccMag-std 
 
-activity
+**activity**
 
 	1. WALKING
 	2. WALKING_UPSTAIRS
@@ -81,11 +83,11 @@ activity
 	5. STANDING
 	6. LAYING
 
-subject
+**subject**
 
 	1..30 unique identifier assigned within a subject
 	
-mean
+**mean**
 
 	Average value related to a series of measures of a subject related to a specific
 	activity and variable
