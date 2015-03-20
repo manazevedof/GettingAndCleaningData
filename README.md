@@ -31,6 +31,11 @@ The script produces a tidy data set after processing records of eight different 
 
 ###Data from the accelerometer and gyroscope of mobile phones.
 
+#### The new data set is composed by:
+
+- 4 columns -> variable, activity, subject and mean.
+- 11880 rows -> 66 variables * 6 activities * 30 subjects
+
 **variable**
 
 	 1. fBodyAcc-mean-X           
