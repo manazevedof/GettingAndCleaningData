@@ -10,20 +10,20 @@ The script produces a tidy data set after processing records of eight different 
 
 1. Label files
 
-- activity_labels.txt: a [6 x 2] table representing the activities’ numbers and names.
-- features.txt: a [561 x 2] table with the 561 variable names, representing the different measures done in the experiment.  
+	- activity_labels.txt: a [6 x 2] table representing the activities’ numbers and names.
+	- features.txt: a [561 x 2] table with the 561 variable names, representing the different measures done in the experiment.  
 
 2. Test files
 
-- subject_test.txt: 
-- X_test: 
-- y_test:
+	- subject_test.txt: 
+	- X_test: 
+	- y_test:
 
 3. Train files
 
-- subject_train.txt: 
-- X_train: 
-- y_train:
+	- subject_train.txt: 
+	- X_train: 
+	- y_train:
 
 
 
