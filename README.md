@@ -92,9 +92,9 @@ The script *run_analisys.R* produces a tidy data set after processing records of
 	- **X_train:**
 	- **y_train:**
 
+---
+	
 ##Data dictionary
-
-###Data from the accelerometer and gyroscope of mobile phones.
 
 #### The new data set is composed by:
 
