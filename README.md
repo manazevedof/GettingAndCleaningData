@@ -100,7 +100,11 @@ The script's basic steps are:
 	- Rename the columns. In the case of the measures the labels are in the file ['features.txt'](https://github.com/manazevedof/GettingAndCleaningData/blob/master/features.txt "Features");
 	- Bind the three tables with the columns for subject, activity and measures;
 4. Merge the two data sets (test and train);
-
+5. Remove temporary data sets;
+6. Remove name duplicated columns. The original "X" data sets contains duplicated column names. These columns are not necessary for the new data set and their existence causes an error when using the "select" function;
+7. As required for this project, select the measures' columns that represents mean and standard deviation, i.e., these containing "mean()" ou "std()" in the column name;
+8. Name the activities, replacing the values of the activity column with the name of the activities. That was done by merging the data set with the one read from the file ['activity_labels.txt'](https://github.com/manazevedof/GettingAndCleaningData/blob/master/activity_labels.txt "Activity labels");
+9.
 	
 ---
 	
