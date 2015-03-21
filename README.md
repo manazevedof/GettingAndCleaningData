@@ -82,16 +82,26 @@ The script *run_analisys.R* produces a tidy data set after processing records of
 	- **activity_labels.txt:** a [6 x 2] table representing the activities’ numbers and names.
 	- **features.txt:** a [561 x 2] table with the 561 variable names, representing the different measures done in the experiment.
 
-2. Test files
-	- **subject_test.txt:**
-	- **X_test:**
-	- **y_test:**
+2. Test files: These three files constitutes columns of a table. Each line represents a subject number, an activity and a series of measures.
+	- **subject_test.txt:** A list of 2947 integer numbers, each one representing one of the 30 subjects. 
+	- **X_test:** A [2947 x 561] table, each line representing 561 measures of a subject's activity.
+	- **y_test:** A list of 2947 integer numbers, each one representing one of the 6 activities.  
 
-3. Train files
-	- **subject_train.txt:**
-	- **X_train:**
-	- **y_train:**
+3. Train files: These three files constitutes columns of a table. Each line represents a subject number, an activity and a series of measures.
+	- **subject_train.txt:** A list of 7352 integer numbers, each one representing one of the 30 subjects. 
+	- **X_train:** A [7352 x 561] table, each line representing 561 measures of a subject's activity.
+	- **y_train:** A list of 7352 integer numbers, each one representing one of the 6 activities. 
 
+The script's basic steps are:
+	
+1. Load the libraries *dplyr* and *tidyr*; 
+2. Read the eight files above described;
+3. For each data set (test and train):
+	- Rename the columns. In the case of the measures the labels are in the file ['features.txt'](https://github.com/manazevedof/GettingAndCleaningData/blob/master/features.txt "Features");
+	- Bind the three tables with the columns for subject, activity and measures;
+4. Merge the two data sets (test and train);
+
+	
 ---
 	
 ##Data dictionary
@@ -185,6 +195,6 @@ The script *run_analisys.R* produces a tidy data set after processing records of
 	
 **mean**
 
-	Average value related to a series of measures of a subject related to a specific
+	Average value related to a series of measures of a subject's specific
 	activity and variable
 	
