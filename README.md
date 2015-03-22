@@ -95,6 +95,10 @@ The script *run_analisys.R* produces a tidy data set after processing records of
 The script's basic steps are:
 	
 1. Load the libraries *dplyr* and *tidyr*; 
+	'''
+	require(dplyr)
+	require(tidyr)
+	'''
 2. Read the eight files above described;
 3. For each data set (test and train):
 	- Rename the columns. In the case of the measures the labels are in the file ['features.txt'](https://github.com/manazevedof/GettingAndCleaningData/blob/master/features.txt "Features");
@@ -102,9 +106,14 @@ The script's basic steps are:
 4. Merge the two data sets (test and train);
 5. Remove temporary data sets;
 6. Remove name duplicated columns. The original "X" data sets contains duplicated column names. These columns are not necessary for the new data set and their existence causes an error when using the "select" function;
-7. As required for this project, select the measures' columns that represents mean and standard deviation, i.e., these containing "mean()" ou "std()" in the column name;
+7. Select the measures' columns that represents mean and standard deviation, i.e., these containing "mean()" ou "std()" in the column name;
 8. Name the activities, replacing the values of the activity column with the name of the activities. That was done by merging the data set with the one read from the file ['activity_labels.txt'](https://github.com/manazevedof/GettingAndCleaningData/blob/master/activity_labels.txt "Activity labels");
-9.
+9. Organize the final arrangement of the data set:
+	- Take the multiple measures' columns and collapse them into key-value pairs;
+	- Rename the measures' names removing the "()";
+	- Group the rows considering the measure (variable), the activity and the subject;
+	- Summarise the groups' data with the values' averages;
+10. Save the new data set to a text file.	
 	
 ---
 	
