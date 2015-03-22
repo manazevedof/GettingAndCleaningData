@@ -95,8 +95,8 @@ The script *run_analisys.R* produces a tidy data set after processing records of
 The script's basic steps are:
 	
 1. Load the libraries *dplyr* and *tidyr*;  
-	```r
-	require(dplyr)
+	```r 
+	require(dplyr) 
 	require(tidyr)
 	```
 2. Read the eight files above described;
