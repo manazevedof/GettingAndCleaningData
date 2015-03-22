@@ -94,12 +94,12 @@ The script *run_analisys.R* produces a tidy data set after processing records of
 
 The script's basic steps are:
 	
-1. Load the libraries *dplyr* and *tidyr*;
+1. Load the libraries *dplyr* and *tidyr*; 
 	```r 
 	require(dplyr) 
-	require(tidyr)
+	require(tidyr) 
 	```
-2. Read the eight files above described;
+2. Read the eight files above described; 
 	```r 
 	actlab <- read.csv("activity_labels.txt",sep="",header=FALSE)
 	fealab <- read.csv("features.txt",sep="",header=FALSE)
@@ -108,9 +108,9 @@ The script's basic steps are:
 	test_s <- read.csv("subject_test.txt",sep="",header=FALSE)
 	train_y <- read.csv("y_train.txt",sep="",header=FALSE)
 	train_x <- read.csv("X_train.txt",sep="",header=FALSE)
-	train_s <- read.csv("subject_train.txt",sep="",header=FALSE)
+	train_s <- read.csv("subject_train.txt",sep="",header=FALSE) 
 	```
-3. For each data set (test and train):
+3. For each data set (test and train): 
 	- Rename the columns. In the case of the measures the labels are in the file ['features.txt'](https://github.com/manazevedof/GettingAndCleaningData/blob/master/features.txt "Features");
 		```r
 		colnames(actlab)<-c('label','activity')
@@ -120,12 +120,12 @@ The script's basic steps are:
 		colnames(test_s)<-c('subject')
 		colnames(train_x)<-fealab$feature
 		colnames(train_y)<-c('label')
-		colnames(train_s)<-c('subject')
+		colnames(train_s)<-c('subject') 
 		```
 	- Bind the three tables with the columns for subject, activity and measures;
 		```r
 		test <-cbind(test_y,test_s,test_x)
-		train <-cbind(train_y,train_s,train_x)	
+		train <-cbind(train_y,train_s,train_x) 	
 		```
 4. Merge the two data sets (test and train);
 	```r
@@ -138,19 +138,17 @@ The script's basic steps are:
 6. Remove name duplicated columns. The original "X" data sets contains duplicated column names. These columns are not necessary for the new data set and their existence causes an error when using the "select" function;
 
 	```r
-	total <- total[, !duplicated(colnames(total))]
+	total <- total[, !duplicated(colnames(total))] 
 	```
 7. Select the measures' columns that represents mean and standard deviation, i.e., these containing "mean()" ou "std()" in the column name;
-
 	```r
 	total <- tbl_df(total)
-	seldata <- select(total,label,subject,contains("mean()"),contains("std()"))
+	seldata <- select(total,label,subject,contains("mean()"),contains("std()")) 
 	```
 8. Name the activities, replacing the values of the activity column with the name of the activities. That was done by merging the data set with the one read from the file ['activity_labels.txt'](https://github.com/manazevedof/GettingAndCleaningData/blob/master/activity_labels.txt "Activity labels");
-
 	```r
 	seldata <- merge(actlab,seldata)
-	seldata <- select(seldata,-label)
+	seldata <- select(seldata,-label) 
 	```
 9. Organize the final arrangement of the data set:
 	- Take the multiple measures' columns and collapse them into key-value pairs;
@@ -159,7 +157,7 @@ The script's basic steps are:
 	- Summarise the groups' data with the values' averages;
 	```r
 	tidyset <- gather(seldata,variable,value,3:68) %>%
-		 mutate(variable=gsub("\\(\\)","",variable)) %>%
+		 mutate(variable = gsub("\\(\\)","",variable)) %>%
 		 group_by(variable,activity,subject) %>%
 		 summarise(mean = mean(value))	
 	```
