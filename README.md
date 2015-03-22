@@ -94,7 +94,7 @@ The script *run_analisys.R* produces a tidy data set after processing records of
 
 The script's basic steps are:
 	
-1. Load the libraries *dplyr* and *tidyr*;  
+1. Load the libraries *dplyr* and *tidyr*;
 	```r 
 	require(dplyr) 
 	require(tidyr)
@@ -136,15 +136,18 @@ The script's basic steps are:
 	rm('test_s','test_x','test_y','test','train_s','train_x','train_y','train')
 	```
 6. Remove name duplicated columns. The original "X" data sets contains duplicated column names. These columns are not necessary for the new data set and their existence causes an error when using the "select" function;
+
 	```r
 	total <- total[, !duplicated(colnames(total))]
 	```
 7. Select the measures' columns that represents mean and standard deviation, i.e., these containing "mean()" ou "std()" in the column name;
+
 	```r
 	total <- tbl_df(total)
 	seldata <- select(total,label,subject,contains("mean()"),contains("std()"))
 	```
 8. Name the activities, replacing the values of the activity column with the name of the activities. That was done by merging the data set with the one read from the file ['activity_labels.txt'](https://github.com/manazevedof/GettingAndCleaningData/blob/master/activity_labels.txt "Activity labels");
+
 	```r
 	seldata <- merge(actlab,seldata)
 	seldata <- select(seldata,-label)
@@ -160,7 +163,7 @@ The script's basic steps are:
 		 group_by(variable,activity,subject) %>%
 		 summarise(mean = mean(value))	
 	```
-10. Save the new data set to a text file.	
+10. Save the new data set to a text file.
 	```r
 	write.table(tidyset,file="tidyset.txt",row.names=FALSE)
 	```
